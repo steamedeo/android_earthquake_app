@@ -12,13 +12,13 @@ public class Earthquake {
 
     private String mCity;
 
-    private String mDate;
+    private long mTime;
 
     //constructor
-    public Earthquake(double mag, String city, String date){
+    public Earthquake(double mag, String city, long time){
         mMag = mag;
         mCity = city;
-        mDate = date;
+        mTime = time;
     }
 
     //getters
@@ -30,7 +30,7 @@ public class Earthquake {
         return mCity;
     }
 
-    public String getDate(){
-        return mDate;
+    public long getDate(){
+        return mTime;
     }
 }

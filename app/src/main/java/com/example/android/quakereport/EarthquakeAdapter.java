@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import android.graphics.drawable.GradientDrawable;
 
 /**
  * Created by stefano on 05/12/2016.
@@ -36,21 +38,66 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         Earthquake currentQuake = getItem(position);
 
-        String m = String.valueOf(currentQuake.getMag());
+        // Format the magnitude to show 1 decimal place
+        String m = Formatter.formatMagnitude(currentQuake.getMag());
 
         String d = String.valueOf(currentQuake.getDate());
+
+        String place = currentQuake.getCity();
+
+        String offset;
+
+        String primary;
+
+        int length = place.length();
+
+        //Split string in offeset and primary
+        int indexStart = place.indexOf(" of ");
+
+        if (indexStart > 0){
+
+            int indexEnd = indexStart + 3;
+
+            offset = place.substring(0, indexEnd);
+
+            primary = place.substring(indexEnd + 1, length);
+        } else {
+            offset = "Near the";
+
+            primary = place;
+        }
+
 
         // Find the TextView in the list_item.xml layout with the ID mag
         TextView mag= (TextView) listItemView.findViewById(R.id.mag);
         mag.setText(m);
 
-        // Find the TextView in the list_item.xml layout with the ID city
-        TextView city = (TextView) listItemView.findViewById(R.id.city);
-        city.setText(currentQuake.getCity());
+        // Find the TextView in the list_item.xml layout with the ID offset
+        TextView offsetView = (TextView) listItemView.findViewById(R.id.offset);
+        offsetView.setText(offset);
+
+        // Find the TextView in the list_item.xml layout with the ID offset
+        TextView primaryView = (TextView) listItemView.findViewById(R.id.primary);
+        primaryView.setText(primary);
 
         // Find the TextView in the list_item.xml layout with the ID date
         TextView date = (TextView) listItemView.findViewById(R.id.date);
-        date.setText(d);
+
+        //create date object
+        Date dateObject = new Date(currentQuake.getDate());
+
+        //create formatted date
+        String formattedDate = Formatter.formatDate(dateObject);
+
+        date.setText(formattedDate);
+
+        // Find the TextView in the list_item.xml layout with the ID time
+        TextView time = (TextView) listItemView.findViewById(R.id.time);
+
+        //create formatted date
+        String formattedTime = Formatter.formatTime(dateObject);
+
+        time.setText(formattedTime);
 
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)

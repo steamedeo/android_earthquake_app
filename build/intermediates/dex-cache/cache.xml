@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="e9b92081925d79d5836148f451cd6d65015de5a3">
+        sha1="6072e87a2669894266ed5949e6d468cd909c6d87">
         <dex dex="/Users/stefano/android_earthquake_app/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_89ed14f042314a71d45e4571b58e3931365c5638/classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="510ada280880d9b4e9aa5566e1606cf42cada402">
+        sha1="af2d03c824d77eafad6544c5a2e828a773121ebf">
         <dex dex="/Users/stefano/android_earthquake_app/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5107fbcd724b003123e67471c59a642f9a944e98/classes.dex" />
     </item>
 

@@ -14,11 +14,20 @@ public class Earthquake {
 
     private long mTime;
 
+    private String mUrl;
+
     //constructor
     public Earthquake(double mag, String city, long time){
         mMag = mag;
         mCity = city;
         mTime = time;
+    }
+
+    public Earthquake(double mag, String city, long time, String url){
+        mMag = mag;
+        mCity = city;
+        mTime = time;
+        mUrl = url;
     }
 
     //getters
@@ -32,5 +41,9 @@ public class Earthquake {
 
     public long getDate(){
         return mTime;
+    }
+
+    public String getUrl(){
+        return mUrl;
     }
 }
